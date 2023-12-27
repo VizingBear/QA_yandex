@@ -9,8 +9,7 @@
 	  
 	SELECT c.login AS "Имя", COUNT(o.id) AS "Счетчик заказов"  
 	FROM "Couriers" AS c  
-	LEFT JOIN "Orders" AS o ON c.id = o."courierId" 
-	WHERE o."inDelivery" = true 
+	JOIN "Orders" AS o ON (o."courierId" = c.id) AND o."inDelivery" = true
 	GROUP BY c.login;
 
 #Задание 2
